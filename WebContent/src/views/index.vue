@@ -31,8 +31,25 @@
 </style>
 <template>
     <div class="index">
+        <Layout width="100%">
+            <Sider hide-trigger
+                   breakpoint="sm"
+                   width="300"
+                   collapsed-width="0">Sider</Sider>
+            <TopHeader></TopHeader>
+            <Input v-model="value1" icon="ios-search" placeholder="Enter something..." style="width: 200px"></Input>
+        </Layout>
         <Row type="flex" justify="center" align="middle">
             <Col span="24">
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">0</li>
+                        <li class="glide__slide">1</li>
+                        <li class="glide__slide">2</li>
+                    </ul>
+                </div>
+            </div>
                 <h1>
                     <img src="https://raw.githubusercontent.com/iview/iview/master/assets/logo.png">
                 </h1>
@@ -45,7 +62,21 @@
     </div>
 </template>
 <script>
+    import TopHeader from  './components/TopHeader'
+    import Glide from '@glidejs/glide'
+
     export default {
+        components:{
+            TopHeader
+        },
+        data () {
+            return {
+                value1: ''
+            }
+        },
+        mounted() {
+            new Glide('.glide').mount()
+        },
         methods: {
             handleStart() {
                 this.$Modal.info({
