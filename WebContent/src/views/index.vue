@@ -59,15 +59,18 @@
                 </h2>
             </Col>
         </Row>
+        <Footer></Footer>
     </div>
 </template>
 <script>
     import TopHeader from  './components/TopHeader'
+    import Footer from  './components/Footer'
     import Glide from '@glidejs/glide'
 
     export default {
         components:{
-            TopHeader
+            TopHeader,
+            Footer
         },
         data () {
             return {
